@@ -1,0 +1,26 @@
+#KnockToWindow{
+    position:fixed;
+    z-index:5;
+    background-color: transparent;
+}
+
+.KTWNotice {
+    position:relative;
+    background-color: #81A6B3;
+    box-shadow: 0 0 5px #000;
+    border: solid 1px #0A0F18;
+}
+
+.KTWClose{
+    position:absolute;
+    bottom:2px;
+    right:2px;
+    background-color: #3f3f3a;
+    color: #fff;
+}
+
+.KTWNotice:hover{
+    border: solid 2px #0A0F18;
+    box-shadow: 0 0 10px #000;
+    cursor:pointer;
+}
