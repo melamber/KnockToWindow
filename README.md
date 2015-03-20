@@ -150,7 +150,7 @@ for these selectors:**
  * **content** _[string, object|HTMLElement]_ - content of the block notice.
  ```
  Example:
-         <p>Hello</p>, $('<div/>'), ...;
+         <p>Hello</p>, $('<div/>'), ...; 
  ```
 
  * **closeElement** _[string, object|HTMLElement]_ - HTML Element for closing the block notice.
