@@ -6,6 +6,27 @@
     z-index:99999;
 }
 
+.KTWNotice{
+    position:relative;
+    background-color: #81A6B3;
+    box-shadow: 0 0 5px #000;
+    border: solid 1px #0A0F18;
+}
+
+.KTWClose{
+    position:absolute;
+    bottom:2px;
+    right:2px;
+    background-color: #3f3f3a;
+    color: #fff;
+}
+
+.KTWNotice:hover{
+    border: solid 2px #0A0F18;
+    box-shadow: 0 0 10px #000;
+    cursor:pointer;
+}
+
 .KTW-Position-Top{
     top: 0;
 }
@@ -52,13 +73,23 @@
     flex-direction:column-reverse;
 }
 
-@keyframes fade {
+@keyframes fade-in {
     0%{
         opacity:0;
     }
 
     100%{
         opacity:1;
+    }
+}
+
+@keyframes fade-out {
+    0%{
+        opacity:1;
+    }
+
+    100%{
+        opacity:0;
     }
 }
 
@@ -71,6 +102,17 @@
         transform: scale(1,1);
     }
 }
+
+@keyframes hide {
+    0%{
+        transform: scale(1,1);
+    }
+
+    100%{
+        transform: scale(0,0);
+    }
+}
+
 
 @keyframes slide-ltr {
     0%{
@@ -122,101 +164,10 @@
     }
 }
 
-.KTW-AnimationOpen{
-    animation: fade 0s;
+.KTW-Animation-Open{
+    animation: show 0.5s;
 }
 
-.KTW-AnimationClose{
-    animation: show 1s reverse;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.KTWNotice{
-    height:100px;
-    width:300px;
-    position:relative;
-    background-color: #81A6B3;
-    box-shadow: 0 0 5px #000;
-    border: solid 1px #0A0F18;
-}
-
-
-
-.KTWClose{
-    position:absolute;
-    bottom:2px;
-    right:2px;
-    background-color: #3f3f3a;
-    color: #fff;
-}
-
-.KTWNotice:hover{
-    border: solid 2px #0A0F18;
-    box-shadow: 0 0 10px #000;
-    cursor:pointer;
-}
-
-.KTWFadeOpen{
-    opacity: 1;
-}
-
-.KTWFadeClose{
-    opacity: 0;
-}
-
-.KTWSlideOpen{
-    height: 100px;
-}
-
-.KTWSlideClose{
-    height: 0;
-}
-
-.KTWSlideOpenHorizontal{
-    width: 200px;
-}
-
-.KTWSlideCloseHorizontal{
-    width: 0;
-}
-
-.KTWShowOpen{
-    width: 200px;
-    height: 100px;
-    margin-top: 0;
-    margin-left: 0;
-}
-
-.KTWShowClose{
-    width: 0;
-    height: 0;
-    margin-top: 50px;
-    margin-left: 100px;
-}
-
-
-
-.block{
-    width:300px;
-    height:300px;
-    position:relative;
-    float:left;
-    background-color: #f00;
+.KTW-Animation-Close{
+    animation: hide 0.5s;
 }
