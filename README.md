@@ -9,7 +9,7 @@ Depends:
 
 ## Overview
 
-All blocks of notifications are placed in the block with ID 'KnockToWindow'",
+All blocks of notifications are placed in the main block with ID 'KnockToWindow'",
 and have class 'KTWNotice'. Elements for closing notification have class 'KTWClose'.
 Notifications are free to close after a specified time. When you click on the notification,
 timer of closing is disabled. When the notification is opening or closing,
@@ -35,60 +35,38 @@ different behavior notifications in plugin configuration.
          $('head').append('<link href="KTWStyle.css" type="text/css" rel="stylesheet" />');
  ```
 
-3. **Connect the plugin to that element (default configuration):**
+3. **Connect the plugin to that element and configure(default configuration):**
         
+ _Example with default configuration:_
+ 
  ```
- Example:
          $("#KnockToWindow").KnockToWindow();
  ```
- 
-4. **For styles of the plugin is necessary to define CSS rules
-for these selectors:**
- 
-  * \#KnockToWindow (if this main block or other selector),
-  * .KTWNotice (block notice),
-  * .KTWClose (element of the closing block notice)
-         
-  _Mandatory rules:_
- 
-  ```
-             #KnockToWindow {
-                 position:fixed;
-             }
-                         
-             .KTWNotice {
-                 position:relative;
-             }
-  ```
-  
-5. **Configure:**
 
- _Example of configuration :_
-
+ _Example of configuration:_
  ```
              $("#KnockToWindow").KnockToWindow({
-                position: 'middle-center',
-                width: '200px',
-                height: '100px',
-                addition: 'horizontal'
+                    position: 'middle-center',
+                    width: '200px',
+                    height: 'auto',
+                    direction: 'top-to-bottom',
+                    content: 'Something...'
              });
  ```
 
  _Default options:_
-
  ```
             position: 'bottom-right',
             width: '200px',
-            height: '100px',
-            addition: 'vertical',
-            transition: 'fade',
-            timeOpen: 1,
-            timeClose: 1,
+            height: 'auto',
+            direction: 'bottom-to-top',
             duration: 10000,
-            actionOpen: 0,
-            actionClose: 0,
+            animateOpen: '', (see .KTW-Animation-Open in css)
+            animateClose: '', (see .KTW-Animation-Close in css)
             content: '',
-            closeElement: "<button class='KTWClose'>Close</button>"`
+            closeElement: "<button class='KTWClose'>Close</button>",
+            actionOpen: null,
+            actionClose: null
  ```
                
 ***
@@ -103,33 +81,17 @@ for these selectors:**
         'middle-right', 'bottom-left', 'bottom-center', 'bottom-right'];
  ```
 
- * **width(height)** _[string]_ - width(height) of the block notice(100px, 20%, auto ...).
+ * **width(height)** _[string]_ - width(height) of the block notice(...px, ...%, auto).
  ```
  Example:
             width: '200px',
             height: 'auto',
  ```
 
- > If you specify a non-fixed value (not in px), then some animation will may incorrectly
- > displayed (you must configure: position, addition, transition). Without animation (or option 'fade'),
- > always displayed correctly.
-
- * **addition** _[enum]_ - addition of the block notice.
+ * **direction** _[enum]_ - direction of the adding block notices.
  ```
  Choose one from possible options:
-              ['horizontal', 'vertical'];
- ```
-
- * **transition** _[enum]_ - style of animation.
- ```
- Choose one from possible options:
-            ['fade', 'slide', 'show'];
- ```
-
- * **timeOpen(timeClose)** _[number]_ - time to close(hide) the block notice(5000 = 5sec).
- ```
- Example:
-         timeClose: 500,
+              ['left-to-right', 'right-to-left', 'top-to-bottom', 'bottom-to-top'];
  ```
 
  * **duration** _[number]_ - duration of the block notice(5000 = 5sec, 0 = infinite).
@@ -137,15 +99,25 @@ for these selectors:**
  Example:
          duration: 8000,
  ```
-
+ 
+ * **animateOpen(animateClose)** _[string]_ - params of animation.
+ ```
+  Example:
+          animateOpen:'show 1s',
+  ```
+  
+  Format: [animation](http://www.w3schools.com/cssref/css3_pr_animation.asp).
+  
+  There are a set of predefined @keyframes:
+   * for opening: [fade-in, show, slide-open-ltr, slide-open-rtl, slide-open-ttb, slide-open-btt];
+   * for closing: [fade-out, hide, slide-close-ltr, slide-close-rtl, slide-close-ttb, slide-close-btt];
+   
  * **actionOpen(actionClose)** _[function]_ - performed action, when block
  notice opening(closing).
  ```
  Example:
          funcName, function(){...};
  ```
-
- > Passed functions performed after the ending animation
 
  * **content** _[string, object|HTMLElement]_ - content of the block notice.
  ```
@@ -160,15 +132,37 @@ for these selectors:**
          "<a href='#' class='KTWClose'>Close</a>";
  ```
 
+### **Advanced configure**
+
+CSS styles are defined by assigning classes to elements. 
+You can change exists classes or create new classes with necessary prefix and 
+assign the name of the class to the desired property.
+ 
+
+         
+  _Example:_
+ 
+  ```
+  css:
+             .KTW-Position-Custom{
+                  top: 20%;
+                  right: 15%;
+             } 
+              
+  config:
+             $("#KnockToWindow").KnockToWindow({
+                  position: 'custom'
+             });
+  ```
+  
+  * \#KnockToWindow (if this main block or other selector),
+  * .KTWNotice (block notice),
+  * .KTWClose (element of the closing block notice)
+
 ***
 
 ## Additional information 
 
-* All events of the plugin belong to namespace 'KnockToWindow'.
-
-* Animation 'show' has not good fluency in cases:
-
- * transition = 'vertical' and position = ['middle-left', 'middle-center', 'middle-right'];
- * transition = 'horizontal' and position = [top-center','middle-center'];
-
+* The plugin uses latest features of CSS3, therefore it correct work in latest versions browsers.
+* All events of the plugin belong to namespace 'KTW'.
 * Link on the demonstration page: [KnockToWindow](http://chtoto.besaba.com).
