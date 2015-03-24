@@ -53,6 +53,10 @@ different behavior notifications in plugin configuration.
                     content: 'Something...'
              });
  ```
+               
+***
+
+### **Options of configuration**
 
  _Default options:_
  ```
@@ -68,10 +72,6 @@ different behavior notifications in plugin configuration.
             actionOpen: null,
             actionClose: null
  ```
-               
-***
-
-### **Options of configuration**
 
  * **position** _[enum]_ - specifies the location on the page.
 
