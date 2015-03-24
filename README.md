@@ -104,13 +104,14 @@ different behavior notifications in plugin configuration.
  ```
   Example:
           animateOpen:'show 1s',
-  ```
+ ```
   
   Format: [animation](http://www.w3schools.com/cssref/css3_pr_animation.asp).
-  
-  There are a set of predefined @keyframes:
-   * for opening: [fade-in, show, slide-open-ltr, slide-open-rtl, slide-open-ttb, slide-open-btt];
-   * for closing: [fade-out, hide, slide-close-ltr, slide-close-rtl, slide-close-ttb, slide-close-btt];
+ ```
+ There are a set of predefined @keyframes:
+   for opening: [fade-in, show, slide-open-ltr, slide-open-rtl, slide-open-ttb, slide-open-btt];
+   for closing: [fade-out, hide, slide-close-ltr, slide-close-rtl, slide-close-ttb, slide-close-btt];
+ ```
    
  * **actionOpen(actionClose)** _[function]_ - performed action, when block
  notice opening(closing).
