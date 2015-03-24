@@ -106,7 +106,7 @@ different behavior notifications in plugin configuration.
           animateOpen:'show 1s',
  ```
  
- There are a set of predefined @keyframes:<br/>
+ There are a set of predefined @keyframes:
   * for opening: _fade-in, show, slide-open-ltr, slide-open-rtl, slide-open-ttb, slide-open-btt;_
   * for closing: _fade-out, hide, slide-close-ltr, slide-close-rtl, slide-close-ttb, slide-close-btt;_
   
